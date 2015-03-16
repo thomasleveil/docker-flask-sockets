@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 
 COPY . /usr/src/app
 
-CMD [ "gunicorn", "-b", "0.0.0.0:80", "server:app" ]
+CMD [ "gunicorn", "--bind", "0.0.0.0:80", "-k", "flask_sockets.worker", "server:app" ]
